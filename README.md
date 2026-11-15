@@ -58,19 +58,11 @@ g++ -std=c++17 main.cpp book_features.cpp update_delete.cpp validation.cpp stora
 | `storage.cpp` | Load and save book records |
 
 
-## Group Contributions
+## Group Members & Contributions
 
 | Member | Contribution | Branch | Example Commits |
 |---|---|---|---|
-| **Member 1 — Radoc** | Set up the repository, `.gitignore`, and README; created the menu; added the shared `Book` structure in `book.h`; integrated the team’s features. | `feature/menu`<br>`feature/menu-integration`<br>`feature/book-struct` | `Add main menu`<br>`Add shared book structure`<br>`Connect book actions to menu` |
+| **Member 1 — Radoc [Leader]** | Set up the repository, `.gitignore`, and README; created the menu; added the shared `Book` structure in `book.h`; integrated the team’s features. | `feature/menu`<br>`feature/menu-integration`<br>`feature/book-struct` | `Add main menu`<br>`Add shared book structure`<br>`Connect book actions to menu` |
 | **Member 2 — See** | Agreed on the book fields and implemented adding, displaying, and searching for books by title or ID. | `feature/add-search-books` | `Add book record`<br>`Display book list`<br>`Search books by title` |
 | **Member 3 — Lovasz** | Implemented file storage and input validation, including loading and saving records and handling invalid input and file errors. | `feature/storage-validation` | `Load books from file`<br>`Save changes to file`<br>`Validate menu and book inputs` |
 | **Member 4 — Cruz** | Implemented updating and deleting books, coordinated test cases, and helped gather quality-review evidence. | `feature/update-delete-books` | `Update book details`<br>`Delete book by ID`<br>`Add boundary and invalid-input checks` |
-
-
-## Group Members 
-
-- Member 1: RADOC (Leader)
-- Member 2: SEE
-- Member 3: LOVASZ
-- Member 4: CRUZ
