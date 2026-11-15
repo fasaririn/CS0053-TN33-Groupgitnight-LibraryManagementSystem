@@ -1,11 +1,41 @@
 #include <iostream>
+#include <vector>
+
+
+#include "book.h"
+#include "book_features.h"
+#include "storage_validation.h"
+#include "update_delete.h"
 
 using namespace std;
 
 int main() {
+    vector<Book> books;
+    const string filename = "books.txt";
+
+    LoadResult loadResult = loadBooks(filename, books);
+
+     switch (loadResult) {
+        case LoadResult::Ok:
+            cout << "Book records loaded.\n";
+            break;
+
+        case LoadResult::FileMissing:
+            cout << "No saved books found. Starting with an empty list.\n";
+            break;
+
+        case LoadResult::Unreadable:
+            cerr << "Could not read the books file.\n";
+            return 1;
+
+        case LoadResult::SomeLinesSkipped:
+            cout << "Some invalid records were skipped. Valid records were loaded.\n";
+            break;
+    }
+
     int choice = 0;
 
-    while (choice != 6) {
+    do {
         cout << "\n=== Library Management System ===\n";
         cout << "1. Add Book\n";
         cout << "2. View Books\n";
@@ -13,33 +43,30 @@ int main() {
         cout << "4. Update Book\n";
         cout << "5. Delete Book\n";
         cout << "6. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
+
+        choice = readMenuChoice();
 
         switch (choice) {
             case 1:
-                // TODO: Call the function to add a book.
+                addBook(books);
                 break;
             case 2:
-                // TODO: Call the function to view books.
+                displayBooks(books);
                 break;
             case 3:
-                // TODO: Call the function to search for a book.
+                searchBooks(books);
                 break;
             case 4:
-                // TODO: Call the function to update a book.
+                updateBook(books);
                 break;
             case 5:
-                // TODO: Call the function to delete a book.
+                deleteBook(books);
                 break;
             case 6:
                 cout << "Goodbye!\n";
                 break;
-            default:
-                cout << "Invalid choice. Please try again.\n";
-                break;
         }
-    }
+    } while (choice != 6);
 
     return 0;
 }
